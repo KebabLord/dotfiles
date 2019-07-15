@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+import os
+City = "YOUR_CITY_HERE"
+
+command = "curl -Ss 'http://wttr.in/"+City+"?0&T&Q' | cut -c 16- | head -2 | xargs echo"
+request = os.popen(command).read()
+
+if (request[:3]=='Sun'):
+	print(""+request)
+else:
+	print(""+request)

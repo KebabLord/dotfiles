@@ -1,0 +1,10 @@
+{
+    "color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "theme": "Adaptive.sublime-theme",
+    "font_face": "terminus",
+    "font_size": 12,
+}

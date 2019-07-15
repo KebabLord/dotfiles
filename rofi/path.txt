@@ -1,0 +1,3 @@
+using an edited version of onedark theme
+Path: /usr/share/rofi/themes
+

@@ -1,0 +1,51 @@
+! special
+*.foreground:   #ffffff
+*.background:   #000000
+*.cursorColor:  #ffffff
+
+! X colors
+!URxvt*foreground:   #c1c1c1
+!UXTerm*foreground:  #c1c1c1
+!URxvt*background:   [100]#000000
+!URxvt*cursorColor:  #c1c1c1
+URxvt*borderColor:   [100]#000000
+
+
+! Colors 0-15.
+
+! black
+*.color0:       #fbf1f2
+*.color8:       #bfb9c6
+
+! red
+*.color1:       #abb584
+*.color9:       #abb584
+
+! green
+*.color2:       #8c7f70
+*.color10:      #8c7f70
+
+! yellow
+*.color3:       #96b5b4
+*.color11:      #96b5b4
+
+! blue
+*.color4:       #c7af94
+*.color12:      #c7af94
+
+! magenta
+*.color5:       #999999
+*.color13:      #999999
+
+! cyan
+*.color6:       #5f8787
+*.color14:      #5f8787
+
+! white
+*.color7:       #ccbfb3
+*.color15:      #ccbfb3
+
+
+! Black color that will not be affected by bold highlighting.
+*.color66: #000000
+*color66:  #000000!

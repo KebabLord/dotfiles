@@ -1,0 +1,16 @@
+// ==UserScript==
+// @id            Custom_Style
+// @name          Custom CSS for domain.com
+// @version       1.0
+// @author        vulgarbulgar
+// @description   Changes the default css for domain.com
+// @include       http://soundcloud.com/*
+// @include       https://soundcloud.com/*
+// @include       http://*.soundcloud.com/*
+// @include       https://*.soundcloud.com/*
+// @resource      myCustomCss http://userstyles.org/custom.css
+// @grant         GM_addStyle
+// @grant         GM_getResourceText
+// ==/UserScript==
+
+GM_addStyle (GM_getResourceText ("body {display:none!important;}

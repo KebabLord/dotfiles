@@ -1,0 +1,19 @@
+// For a clear app view, i'm keeping tabs/status_bar/map/side_bar/menu closed.
+[
+  {
+  "keys": ["shift+f1"],
+  "command": "toggle_tabs"
+  },
+  {
+  "keys": ["shift+f2"],
+  "command": "toggle_side_bar"
+  },
+  {
+  "keys": ["shift+f3"],
+  "command": "toggle_menu"
+  },
+  {
+  "keys": ["shift+f4"],
+  "command": "toggle_status_bar"
+  }
+]

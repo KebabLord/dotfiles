@@ -1,0 +1,192 @@
+### i3-gaps config file of the Kebablord
+### https://kebabland.neocities.org
+### Reference: https://i3wm.org/docs/userguide.html
+
+
+
+# Sets wallpaper and terminal themes at the start, 'wal' or 'feh'
+exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/current.jpg
+exec --no-startup-id compton
+
+### -- BASIC DEFINITIONS -- ###
+set $mod Mod4
+floating_modifier $mod
+font pango:DejaVu Sans Mono 8
+
+
+### -- BASIC KEYBINDS -- ###
+bindsym $mod+d exec rofi -show run
+bindsym $mod+Return exec /usr/bin/urxvt
+bindsym $mod+Shift+q kill
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+# orientation and fullscreen
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+# change container layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+# scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+
+### -- WORKSPACES -- ###
+set $ws1 1:
+set $ws2 2:
+set $ws3 3:
+set $ws4 4:
+set $ws10 10:
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+
+#  >switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+quotedbl workspace $ws10
+#  >move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+quotedbl move container to workspace $ws10
+#  >workspace settings for dual monitor
+#workspace $ws1 output HDMI-1
+#workspace $ws2 output HDMI-1
+#workspace $ws4 output DVI-D-1
+#workspace $ws10 output DVI-D-1
+
+
+### --- MODES --- ###
+mode " Resize Mode" {
+        bindsym Left        resize shrink width 5 px or 5 ppt
+        bindsym Down        resize grow height 5 px or 5 ppt
+        bindsym Up          resize shrink height 5 px or 5 ppt
+        bindsym Right       resize grow width 5 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+mode " Gaps Mode" {
+        bindsym 1           gaps horizontal current set 610;gaps vertical current set 210
+        bindsym 2           gaps inner current set 200
+        bindsym 3           gaps horizontal current set 160;gaps horizontal current set 30
+        bindsym 4           gaps inner current set 50;gaps vertical current set 130
+        bindsym r           gaps inner current set 34;gaps outer current set 18; gaps horizontal current set 30; gaps vertical current set 20  
+        bindsym Up          gaps vertical current plus 5
+        bindsym Down        gaps vertical current minus 5
+        bindsym Left        gaps horizontal current plus 5
+        bindsym Right       gaps horizontal current minus 5
+        bindsym i           gaps inner current plus 5
+        bindsym Shift+i     gaps inner current minus 5
+        bindsym o           gaps inner current plus 5
+        bindsym Shift+o     gaps inner current minus 5
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+
+### -- GAPS & BAR -- ###
+for_window [class="^.*"] border pixel 0
+gaps inner 34
+gaps outer 18
+
+bar {
+   strip_workspace_numbers yes
+   status_command i3blocks -c ~/.i3/i3blocks.conf
+    i3bar_command i3bar -t 0.1
+#   output HDMI-1
+    position top
+    height 26
+#   font pango:RobotoMono Nerd Font Regular 7.5
+    font pango:terminus 10
+        colors {
+            statusline #E6FFF5
+            background #00000000
+#                              BORDER    BG        FG
+            focused_workspace  #FFFFFF00 #00000000 #000000
+            inactive_workspace #FFFFFF00 #00000000 #00000050
+            urgent_workspace   #00000000 #00000000 #C40100
+            binding_mode       #00000000 #00000000 #000000
+        }
+}
+
+
+### -- SPECIAL KEYS -- ###
+bindsym $mod+l exec --no-startup-id python3 /home/admin/.i3/scripts/lock
+bindsym --release $mod+c exec --no-startup-id xkill
+
+#my own soundcloud players bindings (../scripts/soundcloud)
+bindsym $mod+F1 exec --no-startup-id sc -n
+bindsym $mod+F2 exec --no-startup-id sc -
+bindsym $mod+F3 exec --no-startup-id sc + 
+bindsym $mod+F4 exec --no-startup-id sc -p 
+
+bindsym $mod+F5 reload
+bindsym $mod+F6 restart
+bindsym $mod+F7 exit
+bindsym $mod+r mode " Resize Mode"
+bindsym $mod+b mode " Gaps Mode"
+bindsym $mod+KP_Add gaps outer current plus 5
+bindsym $mod+KP_Subtract gaps outer current minus 5
+
+
+
+### -- FUNCTIONS -- ###
+# >Close Steam news
+for_window [title="Steam - News"] kill
+assign [class="Steam"] workspace $ws10
+
+for_window [class="mpv"] move scratchpad
+for_window [class="mpv"] move position center
+for_window [class="mpv"] scratchpad show
+
+for_window [class="feh"] floating enable
+for_window [class="feh"] resize set 1000 800
+for_window [class="feh"] move position center
+
+for_window [window_role="GtkFileChooserDialog"] resize set 800 600
+for_window [window_role="GtkFileChooserDialog"] move position center
+
+# >terminal helper-chan MOD+X
+exec --no-startup-id urxvt -name "termichan" -title "termichan" +bl -w 2 -bd gray
+for_window [instance="termichan"] move scratchpad
+for_window [instance="termichan"] move position center
+bindsym $mod+x [instance="termichan"] scratchpad show
+
+# >nautilus helper-chan MOD+Z
+exec --no-startup-id nautilus ~/Pictures
+for_window [class="Nautilus"] move scratchpad
+for_window [class="Nautilus"] move position center
+bindsym $mod+z [class="Nautilus"] scratchpad show
+for_window [window_type="DIALOG"] focus
+for_window [window_type="DIALOG"] move position center
+for_window [window_type="DIALOG"] sticky enable

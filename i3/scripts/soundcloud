@@ -1,0 +1,90 @@
+#!/usr/bin/python3
+# -*- config: utf-8 -*-
+
+from os import popen as cmd
+from os import system as cmdx
+from time import sleep
+
+x = "xdotool search --name 'soundcloud'"
+
+while True:
+	id = cmd(x).read().replace('\n','')
+	if (id!=''):
+		break;
+	else:
+		sleep(1)
+
+
+## Move container to specific workspace
+workspace = "10: "
+x = """i3-msg [id='"""+id+"""'] move container to workspace"""+workspace
+cmd(x)
+
+log = open("/tmp/sc_log","w")
+log.write(id)
+log.close()
+
+x = "xdotool getwindowname "+str(id)
+
+pausTitles = [
+"Free Listening on SoundCloud",
+"Listen to free music",
+"Discover",
+"Search everything on SoundCloud",
+"SoundCloud",
+"Hear the tracks you've liked",
+"Hear your own playlists and the"
+]
+
+def fixed(i):
+	try:
+		i.index(" - ")
+	except:
+		i = i.replace(" by "," - ")
+	else:
+		i = i[:i.index(" by ")]+"'"
+	#
+	try:
+		i = i.replace("'s"," is")
+	except:
+		pass
+	#
+	try:
+		i = i[:i.index("(")]+i[i.index(")")+1:]
+	except:
+		pass
+	#
+	i_ = 0
+	while (i_<len(pausTitles)):
+		if (i.__contains__(pausTitles[i_])):
+			i = "SoundCloud - paused"
+			break;
+		else:
+			i_ += 1
+	#
+	try:
+		i.index("'")
+	except:
+		i = i.replace("'","")
+	#
+	return i
+
+def getTitle():
+	return cmd(x).read()[:-15]
+#"""
+while True:
+	try:
+		getTitle().index("[")
+	except:
+		break
+	else:
+		sleep(0.5)
+		cmdx("echo Loading")
+		continue
+
+while True:
+	title = getTitle()
+	title = "'"+title+"'"
+	title = fixed(title)
+	cmdx("echo "+title)
+	sleep(1)

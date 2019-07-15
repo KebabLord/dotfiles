@@ -1,0 +1,31 @@
+#!/usr/bin/python3
+from os
+log = open("log","r")
+log = log.read()
+log = log[:-1]
+
+if (int(log) >0):
+	
+
+
+from os import popen as cmd
+from time import sleep
+
+x = "xdotool search --name 'soundcloud'"
+
+while True:
+        id = cmd(x).read().replace('\n','')
+        if (id!=''):
+                break;
+        else:
+                sleep(1)
+
+x = "xdotool getwindowname "
+
+
+title = cmd(x+id).read()
+title = title[:-15]
+#cmd("echo "+title)
+print(title)
+sleep(5)
+
