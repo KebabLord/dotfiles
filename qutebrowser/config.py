@@ -10,8 +10,8 @@ c.new_instance_open_target = 'window'
 c.statusbar.hide = True
 c.messages.timeout = 700
 
-#c.tabs.show = 'switching'
-#c.tabs.show_switching_delay = 3000
+c.tabs.show = 'switching'
+c.tabs.show_switching_delay = 3000
 
 
 ## Search Engines

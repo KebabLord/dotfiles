@@ -1,11 +1,8 @@
 # Junicchi's Linux Rice
 i3gaps, i3blocks, Urxvt, Subl, qutebrowser and various dotfiles are contained in this repo. Steal this rice.
 
-![Single](Screenshots/rice_1.png)
+![Single](Screenshots/rice_0.png)
 
-![Dual](Screenshots/rice_2.png)
-
-![Dual2](Screenshots/rice_3.png)
 
 ## i3gaps Features
  - Disable steam news popup
@@ -25,3 +22,9 @@ i3gaps, i3blocks, Urxvt, Subl, qutebrowser and various dotfiles are contained in
  - Sublime text keybindings and config, so you can get a borderless sublime view
  - Handy bash_aliases and the bashrc
  - Qutebrowser with custom soundcloud theme and search engines
+
+
+## Other Screenshots
+ ![Single](Screenshots/rice_1.png)
+ ![Single](Screenshots/rice_2.png)
+ ![Single](Screenshots/rice_3.png)
