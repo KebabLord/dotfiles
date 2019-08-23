@@ -126,7 +126,7 @@ bar {
     i3bar_command i3bar -t 0.1
 #   output HDMI-1
     position top
-    height 26
+#    height 26
 #   font pango:RobotoMono Nerd Font Regular 7.5
     font pango:terminus 10
         colors {
@@ -142,8 +142,8 @@ bar {
 
 
 ### -- SPECIAL KEYS -- ###
-bindsym $mod+l exec --no-startup-id python3 /home/admin/.i3/scripts/lock
-bindsym --release $mod+c exec --no-startup-id xkill
+bindsym $mod+l exec --no-startup-id python3 /home/owo/.i3/scripts/lock
+bindsym --release $mod+Shift+c exec --no-startup-id xkill
 
 #my own soundcloud players bindings (../scripts/soundcloud)
 bindsym $mod+F1 exec --no-startup-id sc -n
@@ -179,6 +179,8 @@ for_window [window_role="GtkFileChooserDialog"] move position center
 
 # >terminal helper-chan MOD+X
 exec --no-startup-id urxvt -name "termichan" -title "termichan" +bl -w 2 -bd gray
+#for_window [instance="termichan"] resize set 910 360
+#for_window [instance="termichan"] move position 500 720
 for_window [instance="termichan"] move scratchpad
 for_window [instance="termichan"] move position center
 bindsym $mod+x [instance="termichan"] scratchpad show
@@ -188,6 +190,10 @@ exec --no-startup-id nautilus ~/Pictures
 for_window [class="Nautilus"] move scratchpad
 for_window [class="Nautilus"] move position center
 bindsym $mod+z [class="Nautilus"] scratchpad show
+
 for_window [window_type="DIALOG"] focus
 for_window [window_type="DIALOG"] move position center
 for_window [window_type="DIALOG"] sticky enable
+
+#exec --no-startup-id i3-msg restart
+exec --no-startup-id nm-applet

@@ -1,6 +1,8 @@
 #!/bin/bash
 
-rice_folder=/home/admin/Documents/rice
+USERNAME=owo
+
+rice_folder=/home/owo/Github/rice
 
 #main
 cp ~/{.compton.conf,.Xdefaults,.Xresources,.bash_aliases} $rice_folder
@@ -9,8 +11,8 @@ cp ~/{.compton.conf,.Xdefaults,.Xresources,.bash_aliases} $rice_folder
 cp -r ~/.i3/{config,i3blocks.conf,scripts} $rice_folder/i3
 
 #qutebrowser config and soundcloud css theme
-cp -r /home/admin/.config/qutebrowser/config.py $rice_folder/qutebrowser/
-cp -r /home/admin/.local/share/qutebrowser/greasemonkey $rice_folder/qutebrowser/
+cp -r /home/owo/.config/qutebrowser/config.py $rice_folder/qutebrowser/
+cp -r /home/owo/.local/share/qutebrowser/greasemonkey $rice_folder/qutebrowser/
 
 #weechat color themes and aliases
 cp ~/.weechat/{weechat.conf,alias.conf} $rice_folder/weechat

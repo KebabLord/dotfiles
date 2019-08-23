@@ -49,3 +49,5 @@ URxvt*borderColor:   [100]#000000
 ! Black color that will not be affected by bold highlighting.
 *.color66: #000000
 *color66:  #000000!
+
+
