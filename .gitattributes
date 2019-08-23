@@ -1,0 +1,3 @@
+i3/scripts/* linguist-vendored
+*.py linguist-vendored
+*.sh linguist-vendored=false
