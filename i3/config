@@ -13,6 +13,11 @@ set $mod Mod4
 floating_modifier $mod
 font pango:DejaVu Sans Mono 8
 
+### -- CLASS -- ###
+client.focused          #1A1A1A #1A1A1A #F4F5F0 #9196DB   #9196DB #285577
+client.focused_inactive #1A1A1A #1A1A1A #F4F5F0 #9196DB   #9196DB
+client.unfocused        #1A1A1A #404142 #F4F5F0 #9196DB   #9196DB
+client.urgent           #2F343A #897765 #FFFFFF #900000   #900000
 
 ### -- BASIC KEYBINDS -- ###
 bindsym $mod+d exec rofi -show run
@@ -50,7 +55,7 @@ set $ws2 2:
 set $ws3 3:
 set $ws4 4:
 #set $ws10 10:
-set $ws10 10:
+set $ws10 10: 
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -179,11 +184,14 @@ for_window [window_role="GtkFileChooserDialog"] move position center
 
 # >terminal helper-chan MOD+X
 exec --no-startup-id urxvt -name "termichan" -title "termichan" +bl -w 2 -bd gray
-#for_window [instance="termichan"] resize set 910 360
-#for_window [instance="termichan"] move position 500 720
 for_window [instance="termichan"] move scratchpad
 for_window [instance="termichan"] move position center
 bindsym $mod+x [instance="termichan"] scratchpad show
+
+# >green tunnel
+exec --no-startup-id urxvt -name "greentunel" +bl -w 2 -bd gray -geometry 58x25 -e green-tunnel
+for_window [instance="greentunel"] move scratchpad
+for_window [instance="greentunel"] move position center
 
 # >nautilus helper-chan MOD+Z
 exec --no-startup-id nautilus ~/Pictures
@@ -195,5 +203,4 @@ for_window [window_type="DIALOG"] focus
 for_window [window_type="DIALOG"] move position center
 for_window [window_type="DIALOG"] sticky enable
 
-#exec --no-startup-id i3-msg restart
 exec --no-startup-id nm-applet
