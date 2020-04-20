@@ -189,9 +189,9 @@ for_window [instance="termichan"] move position center
 bindsym $mod+x [instance="termichan"] scratchpad show
 
 # >green tunnel
-exec --no-startup-id urxvt -name "greentunel" +bl -w 2 -bd gray -geometry 58x25 -e green-tunnel
-for_window [instance="greentunel"] move scratchpad
-for_window [instance="greentunel"] move position center
+#exec --no-startup-id urxvt -name "greentunel" +bl -w 2 -bd gray -geometry 58x25 -e green-tunnel
+#for_window [instance="greentunel"] move scratchpad
+#for_window [instance="greentunel"] move position center
 
 # >nautilus helper-chan MOD+Z
 exec --no-startup-id nautilus ~/Pictures

@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+from subprocess import Popen,PIPE,STDOUT,call
+
+raw = Popen("termux run -o LogLevel=QUIET -t termux-battery-status",shell=True,stdout=PIPE)
+raw = raw.communicate()[0].decode()
+
+from json import loads
+dix = loads(raw)
+percentage = dix['percentage']
+status = dix['status']
+
+if (status == 'CHARGING'):
+  prefix=" %"
+else:
+  prefix="  %"
+
+print(prefix+str(percentage))

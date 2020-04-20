@@ -5,9 +5,18 @@ URXvt*pixbuf: true
 URxvt*shading: 46
 !URxvt*depth: 32
 
-URxvt.font:xft:terminus:size=12
-!URxvt.font:-*-rissole-*:size=12
-URxvt.boldFont:xft:terminus:style=Bold:size=12
+!!URxvt.font:xft:speedy:size=12
+!!URxvt.boldFont:xft:speedy:style=Bold:size=12
+
+!!URxvt.font:xft:tamzen:size=12
+!!URxvt.boldFont:xft:tamzen:style=Bold:size=12
+
+URxvt.font:xft:dina:size=12
+URxvt.boldFont:xft:dina:style=Bold:size=12
+
+!!URxvt.font:xft:dina:size=12
+!!URxvt.boldFont:xft:dina:style=Bold:size=12
+
 !URxvt.letterSpace: -6
 !URxvt.lineSpace: 0
 !URxvt.geometry: 92x24

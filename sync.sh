@@ -1,7 +1,4 @@
 #!/bin/bash
-
-USERNAME=owo
-
 rice_folder=/home/owo/Github/rice
 
 #main
@@ -17,6 +14,10 @@ cp -r /home/owo/.local/share/qutebrowser/greasemonkey $rice_folder/qutebrowser/
 #weechat color themes and aliases
 cp ~/.weechat/{weechat.conf,alias.conf} $rice_folder/weechat
 
-git -C $rice_folder add -A
-git -C $rice_folder commit --all
-git -C $rice_folder push origin master
+read -p "Do you want to push github? (y/n) " yn
+if [ $yn == "y" ]
+then
+  git -C $rice_folder add -A
+  git -C $rice_folder commit --all
+  git -C $rice_folder push origin master
+fi
