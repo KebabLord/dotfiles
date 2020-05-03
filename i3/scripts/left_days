@@ -1,8 +1,0 @@
-#!/usr/bin/python3
-from datetime import datetime
-
-final = datetime(2020,6,20)
-today = datetime.today()
-left = (final-today).days
-
-print(left)

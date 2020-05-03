@@ -150,12 +150,6 @@ bar {
 bindsym $mod+l exec --no-startup-id python3 /home/owo/.i3/scripts/lock
 bindsym --release $mod+Shift+c exec --no-startup-id xkill
 
-#my own soundcloud players bindings (../scripts/soundcloud)
-bindsym $mod+F1 exec --no-startup-id sc -n
-bindsym $mod+F2 exec --no-startup-id sc -
-bindsym $mod+F3 exec --no-startup-id sc + 
-bindsym $mod+F4 exec --no-startup-id sc -p 
-
 bindsym $mod+F5 reload
 bindsym $mod+F6 restart
 bindsym $mod+F7 exit
@@ -165,8 +159,9 @@ bindsym $mod+KP_Add gaps outer current plus 5
 bindsym $mod+KP_Subtract gaps outer current minus 5
 
 
-
 ### -- FUNCTIONS -- ###
+assign [title="Auryo - 2.5.3"] workspace $ws10
+
 # >Close Steam news
 for_window [title="Steam - News"] kill
 assign [class="Steam"] workspace $ws10
@@ -187,11 +182,6 @@ exec --no-startup-id urxvt -name "termichan" -title "termichan" +bl -w 2 -bd gra
 for_window [instance="termichan"] move scratchpad
 for_window [instance="termichan"] move position center
 bindsym $mod+x [instance="termichan"] scratchpad show
-
-# >green tunnel
-#exec --no-startup-id urxvt -name "greentunel" +bl -w 2 -bd gray -geometry 58x25 -e green-tunnel
-#for_window [instance="greentunel"] move scratchpad
-#for_window [instance="greentunel"] move position center
 
 # >nautilus helper-chan MOD+Z
 exec --no-startup-id nautilus ~/Pictures

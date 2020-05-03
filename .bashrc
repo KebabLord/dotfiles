@@ -83,7 +83,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#Putting my own scripts there is easier
+#Putting my own scripts .local/bin is easier
 export PATH="/home/admin/.local/bin:$PATH"
 
 #image uploaders api key

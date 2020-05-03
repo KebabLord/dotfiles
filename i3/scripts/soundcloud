@@ -1,90 +1,28 @@
 #!/usr/bin/python3
-# -*- config: utf-8 -*-
+# I added a feature that logs current playing track/artist to Auryo Soundcloud Player
+# which made us able to pull them and print it to our status bar
+# Here is my fork: https://github.com/Kebablord/Auryo
 
-from os import popen as cmd
-from os import system as cmdx
-from time import sleep
+from os import system
 
-x = "xdotool search --name 'soundcloud'"
+log = open("/tmp/auryo_status.log",mode="r").readlines()
+title = log[0].rstrip()
+artist = log[1].rstrip()
 
-while True:
-	id = cmd(x).read().replace('\n','')
-	if (id!=''):
-		break;
-	else:
-		sleep(1)
+if (' (' in title):
+  title = title[:title.index(' (')]
 
+if (' [' in title):
+  title = title[:title.index(' [')]
 
-## Move container to specific workspace
-workspace = "10: "
-x = """i3-msg [id='"""+id+"""'] move container to workspace"""+workspace
-cmd(x)
+if ('-' in title):
+  artist = ''
+  if not(' -' in title):
+      title.replace('-',' -')
+else:
+  artist += ' - '
 
-log = open("/tmp/sc_log","w")
-log.write(id)
-log.close()
-
-x = "xdotool getwindowname "+str(id)
-
-pausTitles = [
-"Free Listening on SoundCloud",
-"Listen to free music",
-"Discover",
-"Search everything on SoundCloud",
-"SoundCloud",
-"Hear the tracks you've liked",
-"Hear your own playlists and the"
-]
-
-def fixed(i):
-	try:
-		i.index(" - ")
-	except:
-		i = i.replace(" by "," - ")
-	else:
-		i = i[:i.index(" by ")]+"'"
-	#
-	try:
-		i = i.replace("'s"," is")
-	except:
-		pass
-	#
-	try:
-		i = i[:i.index("(")]+i[i.index(")")+1:]
-	except:
-		pass
-	#
-	i_ = 0
-	while (i_<len(pausTitles)):
-		if (i.__contains__(pausTitles[i_])):
-			i = "SoundCloud - paused"
-			break;
-		else:
-			i_ += 1
-	#
-	try:
-		i.index("'")
-	except:
-		i = i.replace("'","")
-	#
-	return i
-
-def getTitle():
-	return cmd(x).read()[:-15]
-#"""
-while True:
-	try:
-		getTitle().index("[")
-	except:
-		break
-	else:
-		sleep(0.5)
-		cmdx("echo Loading")
-		continue
-
-while True:
-	title = getTitle()
-	title = "'"+title+"'"
-	title = fixed(title)
-	cmdx("echo "+title)
-	sleep(1)
+if not(system('pidof auryo >/dev/null')):
+  print(artist+title)
+else:
+  print('')

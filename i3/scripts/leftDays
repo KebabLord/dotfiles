@@ -1,0 +1,8 @@
+#!/usr/bin/python3
+from datetime import datetime
+
+final = datetime(2022,2,22)
+today = datetime.today()
+left = (final-today).days
+
+print(left)

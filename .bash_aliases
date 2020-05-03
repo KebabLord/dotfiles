@@ -1,5 +1,3 @@
-# Github - Kebablord
-
 # some more ls aliases
 #alias ll='ls -l'
 #alias la='ls -A'
@@ -34,12 +32,19 @@ alias sound_hoparlor="pactl set-default-sink alsa_output.pci-0000_0a_00.3.analog
 alias sound_hdmi="pactl set-default-sink alsa_output.pci-0000_08_00.1.hdmi-stereo-extra1"
 
 alias secretmode="unset HISTFILE && echo history is OFF"
-alias moe="source ~/Scripts/termux-mini.sh"
-alias bye="exit"
 alias syncthing_chk="find -name .stversions -exec tree {} \;"
+alias bye="exit"
+alias pop="mpv ~/Music/pop.m4a &>/dev/null"
 
-AWS="[SERVER]"
-alias irc="ssh $AWS -p 22 -i ~/.ssh/[KEY].pem -t tmux attach-session -t 0"
+alias x="systemctl suspend"
+alias pi="pwd>/tmp/pi"
+alias po="cd \`cat /tmp/pi\`"
+
+
+AWS="<SECRET>"
+alias vm="ssh $AWS -p 22 -i <SECRET>"
+alias irc="vm -t tmux attach-session -t 0"
+
 
 tinyurl() {
     curl http://tinyurl.com/api-create.php?url=\'"$1"\'

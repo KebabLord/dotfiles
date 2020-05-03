@@ -13,6 +13,7 @@ i3gaps, i3blocks, Urxvt, Subl, qutebrowser and various dotfiles are contained in
  - A full transparent minimal bar
  - Characters rather than numbers as workspace names with static sequance
 
+![CurrentTrack](Screenshots/sc.png)
 ![Modes](Screenshots/modes.png)
 
 ## Other dotfiles
