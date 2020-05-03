@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-# URL HANDLER by Github/Kebablord
+# URL HANDLER - Github/Kebablord
 
 case "$1" in
 	*mkv|*webm|*mp4|*youtube.com/watch*|*youtube.com/playlist*|*youtu.be*)

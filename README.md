@@ -1,17 +1,15 @@
 # Junicchi's Linux Rice
-i3gaps, i3blocks, Urxvt, Subl, qutebrowser and various dotfiles are contained in this repo. Steal this rice.
-
 ![Single](Screenshots/rice_0.png)
 
 
-## i3gaps Features
- - Disable steam news popup
- - Use any terminal as dropdown
- - Nautilus dropdown
+## Preferences
+ - Current playing souncloud track to status bar [script](https://github.com/KebabLord/dotfiles/blob/master/i3/scripts/soundcloud)
  - Gaps Mode, which you can easily manage inner/outer/vertical/horizontal gaps and switch between gaps profiles
- - Set wallpaper with feh
+ - Disable steam news popup
+ - Keep an urxvt and nutilus dropdown in background
  - A full transparent minimal bar
  - Characters rather than numbers as workspace names with static sequance
+ - [Bash aliases](https://github.com/KebabLord/dotfiles/blob/master/.bash_aliases) with handy functions
 
 ![CurrentTrack](Screenshots/sc.png)
 ![Modes](Screenshots/modes.png)
@@ -20,10 +18,8 @@ i3gaps, i3blocks, Urxvt, Subl, qutebrowser and various dotfiles are contained in
  - Rofi theme, mosaic screen locker script
  - Compton config for window shadows and soft transition effect
  - Xresources and Xdefautls for terminal (urxvt) colors
- - Sublime text keybindings and config, so you can get a borderless sublime view
- - Handy bash_aliases and the bashrc
- - Qutebrowser with custom soundcloud theme and search engines
-
+ - Sublime text keybindings and config
+ - Qutebrowser custom search methods
 
 ## Other Screenshots
  ![Single](Screenshots/rice_1.png)
