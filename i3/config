@@ -20,6 +20,7 @@ client.unfocused        #1A1A1A #404142 #F4F5F0 #9196DB   #9196DB
 client.urgent           #2F343A #897765 #FFFFFF #900000   #900000
 
 ### -- BASIC KEYBINDS -- ###
+#bindsym $mod+d exec rofi -show run -theme ~/.config/rofi/onedark.rasi
 bindsym $mod+d exec rofi -show run
 bindsym $mod+Return exec /usr/bin/urxvt
 bindsym $mod+Shift+q kill
@@ -102,8 +103,8 @@ mode " Resize Mode" {
         bindsym $mod+r mode "default"
 }
 mode " Gaps Mode" {
-        bindsym 1           gaps horizontal current set 610;gaps vertical current set 210
-        bindsym 2           gaps inner current set 200
+        bindsym 1           gaps inner current set 5 ; gaps horizontal current set 1 ; gaps vertical current set 1
+        bindsym 2           gaps inner current set 10 ; gaps horizontal current set 5 ; gaps vertical current set 5
         bindsym 3           gaps horizontal current set 160;gaps horizontal current set 30
         bindsym 4           gaps inner current set 50;gaps vertical current set 130
         bindsym r           gaps inner current set 34;gaps outer current set 18; gaps horizontal current set 30; gaps vertical current set 20  
@@ -132,8 +133,8 @@ bar {
 #   output HDMI-1
     position top
 #    height 26
-#   font pango:RobotoMono Nerd Font Regular 7.5
-    font pango:terminus 10
+#   font pango:terminus 10
+    font pango:dina 9
         colors {
             statusline #E6FFF5
             background #00000000
@@ -147,7 +148,7 @@ bar {
 
 
 ### -- SPECIAL KEYS -- ###
-bindsym $mod+l exec --no-startup-id python3 /home/owo/.i3/scripts/lock
+bindsym $mod+l exec --no-startup-id slimlock
 bindsym --release $mod+Shift+c exec --no-startup-id xkill
 
 bindsym $mod+F5 reload
@@ -158,17 +159,19 @@ bindsym $mod+b mode " Gaps Mode"
 bindsym $mod+KP_Add gaps outer current plus 5
 bindsym $mod+KP_Subtract gaps outer current minus 5
 
+bindsym Print exec --no-startup-id flameshot gui -p ~/Pictures/Screenshots/
+bindsym ctrl+Print exec --no-startup-id flameshot gui -d 3000 -p ~/Pictures/Screenshots/
 
 ### -- FUNCTIONS -- ###
-assign [title="Auryo - 2.5.3"] workspace $ws10
+assign [title="Auryo - 2.5.4"] workspace $ws10
+assign [title="GNU Image Manipulation Program"] workspace $ws3
 
 # >Close Steam news
 for_window [title="Steam - News"] kill
 assign [class="Steam"] workspace $ws10
 
-for_window [class="mpv"] move scratchpad
+for_window [class="mpv"] floating enable
 for_window [class="mpv"] move position center
-for_window [class="mpv"] scratchpad show
 
 for_window [class="feh"] floating enable
 for_window [class="feh"] resize set 1000 800
@@ -181,6 +184,7 @@ for_window [window_role="GtkFileChooserDialog"] move position center
 exec --no-startup-id urxvt -name "termichan" -title "termichan" +bl -w 2 -bd gray
 for_window [instance="termichan"] move scratchpad
 for_window [instance="termichan"] move position center
+for_window [instance="termichan"] sticky enable
 bindsym $mod+x [instance="termichan"] scratchpad show
 
 # >nautilus helper-chan MOD+Z
@@ -193,4 +197,5 @@ for_window [window_type="DIALOG"] focus
 for_window [window_type="DIALOG"] move position center
 for_window [window_type="DIALOG"] sticky enable
 
-exec --no-startup-id nm-applet
+exec --no-startup-id pnmixer
+exec --no-startup-id sleep 3s; nm-applet

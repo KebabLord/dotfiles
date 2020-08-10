@@ -1,0 +1,28 @@
+# terminal theme for SLIM
+
+msg_color               #FFFFFF
+msg_font                terminus:size=18:dpi=75
+msg_x                   50%
+msg_y                   30%
+
+session_color           #FFFFFF
+session_font            terminus:size=18:dpi=75
+session_x               50%
+session_y               30%
+
+background_style        stretch
+background_color        #1e222c
+
+# Input controls
+
+input_panel_x           50%
+input_panel_y           50%
+input_name_x            140
+input_name_y            61
+input_pass_x            140
+input_pass_y            103
+input_font              terminus:size=18:dpi=75
+input_color		#FFFFFF
+
+#username_msg            
+#password_msg            

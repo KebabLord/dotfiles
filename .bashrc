@@ -82,9 +82,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-#Putting my own scripts .local/bin is easier
-export PATH="/home/admin/.local/bin:$PATH"
-
-#image uploaders api key
-export PUUSH_API_KEY="XXXXXXXXXXXXXXXXXXXXXXXXXXXXX"

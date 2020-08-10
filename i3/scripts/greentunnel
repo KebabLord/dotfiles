@@ -1,0 +1,12 @@
+#!/bin/bash
+pidof node &>/dev/null
+if [ $? != 0 ]
+then
+green-tunnel --port 13337 &>/dev/null &
+echo 
+#echo on
+else
+pkill node
+#echo off
+echo 
+fi

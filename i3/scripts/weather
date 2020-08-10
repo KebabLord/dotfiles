@@ -1,0 +1,8 @@
+#!/bin/bash
+status=`curl -Ss 'http://wttr.in/YOUR_CITY_HERE?0&T&Q' 2>/dev/null | cut -c 16- 2>/dev/null | head -2 2>/dev/null | xargs echo 2>/dev/null`
+if [[ $status == *"°C"* ]]
+then
+  echo $status
+else
+  echo 
+fi

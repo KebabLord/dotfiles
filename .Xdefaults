@@ -8,8 +8,8 @@ URxvt*shading: 46
 !!URxvt.font:xft:speedy:size=12
 !!URxvt.boldFont:xft:speedy:style=Bold:size=12
 
-!!URxvt.font:xft:tamzen:size=12
-!!URxvt.boldFont:xft:tamzen:style=Bold:size=12
+!!URxvt.font:xft:terminus:size=12
+!!URxvt.boldFont:xft:terminus:style=Bold:size=12
 
 URxvt.font:xft:dina:size=12
 URxvt.boldFont:xft:dina:style=Bold:size=12
@@ -35,20 +35,21 @@ URxvt.keysym.Shift-Down: command:\033]721;1\007
 
 
 !!! Copy Paste & Other Extensions !!!
-URxvt.perl-lib: /usr/lib/urxvt/perl
-URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
-URxvt.copyCommand: xclip -i -selection clipboard
-URxvt.pasteCommand: xclip -o -selection clipboard
+URxvt.perl-lib:		/usr/lib/urxvt/perl
+URxvt.perl-ext-common:	default,clipboard,url-select
+URxvt.copyCommand:	xclip -i -selection clipboard
+URxvt.pasteCommand:	xclip -o -selection clipboard
 
-URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-v: perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-s: perl:keyboard-select:search
-URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher:	/home/owo/Scripts/urlHandler.sh
+URxvt.url-select.underline:	true
+URxvt.url-select.autocopy:	true
 
-URxvt.keyboard-select.clipboard: 1
+URxvt.keysym.M-c:		perl:clipboard:copy
+URxvt.keysym.M-v:		perl:clipboard:paste
+URxvt.keysym.M-C-v:		perl:clipboard:paste_escaped
+URxvt.keysym.M-Escape:		perl:keyboard-select:activate
+URxvt.keysym.M-s:		perl:keyboard-select:search
+URxvt.keysym.M-u:		perl:url-select:select_next
 
-URxvt.url-select.launcher: /home/owo/Scripts/linker.sh
-URxvt.url-select.underline: true
-URxvt.url-select.autocopy: true
+!!URxvt.keyboard-select.clipboard: 1
+
