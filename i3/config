@@ -1,7 +1,5 @@
 ### i3-gaps config file of the Kebablord
-### https://kebabland.neocities.org
 ### Reference: https://i3wm.org/docs/userguide.html
-
 
 
 # Sets wallpaper and terminal themes at the start, 'wal' or 'feh'
@@ -20,7 +18,6 @@ client.unfocused        #1A1A1A #404142 #F4F5F0 #9196DB   #9196DB
 client.urgent           #2F343A #897765 #FFFFFF #900000   #900000
 
 ### -- BASIC KEYBINDS -- ###
-#bindsym $mod+d exec rofi -show run -theme ~/.config/rofi/onedark.rasi
 bindsym $mod+d exec rofi -show run
 bindsym $mod+Return exec /usr/bin/urxvt
 bindsym $mod+Shift+q kill
@@ -133,7 +130,6 @@ bar {
 #   output HDMI-1
     position top
 #    height 26
-#   font pango:terminus 10
     font pango:dina 9
         colors {
             statusline #E6FFF5

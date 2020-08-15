@@ -5,7 +5,6 @@
 
 ! X colors
 !URxvt*foreground:   #c1c1c1
-!UXTerm*foreground:  #c1c1c1
 !URxvt*background:   [100]#000000
 !URxvt*cursorColor:  #c1c1c1
 URxvt*borderColor:   [100]#000000

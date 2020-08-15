@@ -3,23 +3,11 @@ URxvt*scrollBar: false
 URxvt*transparent: true
 URXvt*pixbuf: true
 URxvt*shading: 46
-!URxvt*depth: 32
-
-!!URxvt.font:xft:speedy:size=12
-!!URxvt.boldFont:xft:speedy:style=Bold:size=12
-
-!!URxvt.font:xft:terminus:size=12
-!!URxvt.boldFont:xft:terminus:style=Bold:size=12
 
 URxvt.font:xft:dina:size=12
 URxvt.boldFont:xft:dina:style=Bold:size=12
 
-!!URxvt.font:xft:dina:size=12
-!!URxvt.boldFont:xft:dina:style=Bold:size=12
-
-!URxvt.letterSpace: -6
-!URxvt.lineSpace: 0
-!URxvt.geometry: 92x24
+URxvt.letterSpace: -1
 
 ! Disabling the ctrl+shift selector
 URxvt.iso14755: false
@@ -28,11 +16,6 @@ URxvt.iso14755_52: false
 ! Common Keybinds for Navigations
 URxvt.keysym.Shift-Up: command:\033]720;1\007
 URxvt.keysym.Shift-Down: command:\033]721;1\007
-!URxvt.keysym.Control-Up: \033[1;5A
-!URxvt.keysym.Control-Down: \033[1;5B
-!URxvt.keysym.Control-Right: \033[1;5C
-!URxvt.keysym.Control-Left: \033[1;5D
-
 
 !!! Copy Paste & Other Extensions !!!
 URxvt.perl-lib:		/usr/lib/urxvt/perl
@@ -50,6 +33,3 @@ URxvt.keysym.M-C-v:		perl:clipboard:paste_escaped
 URxvt.keysym.M-Escape:		perl:keyboard-select:activate
 URxvt.keysym.M-s:		perl:keyboard-select:search
 URxvt.keysym.M-u:		perl:url-select:select_next
-
-!!URxvt.keyboard-select.clipboard: 1
-
