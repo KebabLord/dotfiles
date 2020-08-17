@@ -21,3 +21,6 @@ selects a random ascii art everytime, here is the list:
  ![Single](Screenshots/rice_1.png)
  ![Single](Screenshots/rice_2.png)
  ![Single](Screenshots/rice_3.png)
+
+firefox:
+ ![Single](Screenshots/firefox.png)
