@@ -131,9 +131,11 @@ toolbarbutton#tabs-newtab-button {
 .tabbrowser-tab[first-visible-tab][last-visible-tab]{
   background-color: var(--uc-bar-bg-color) !important;
 }
+/*
 .tab-close-button.close-icon {
   display: none !important;
 }
+*/
 .tabbrowser-tab:hover .tab-close-button.close-icon {
   display: block !important;
 }

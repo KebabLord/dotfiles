@@ -1,5 +1,5 @@
 #!/bin/bash
-# Initial wifi connect script for non-graphic distro installs. If you don't have ethernet.
+# Initial wifi connect script for non-graphic distro installs. Useful if you don't have ethernet.
 # Github / Kebablord
 
 printf "SSID: "; read ssid
@@ -14,4 +14,11 @@ network={
 
 wlaninterface=`iw dev | grep -i interface | awk '{print $2}'`
 echo wlan interface is $wlaninterface
-echo "wpa_supplicant -c ./wpa_supplicant.conf -i $wificard -B"
+
+sudo wpa_supplicant -c ./wpa_supplicant.conf -i $wlaninterface -B
+sudo dhclient && echo SUCCESS!
+
+if [ $? > 0 ]
+then
+echo FAIL.
+fi
