@@ -1,3 +1,4 @@
+# PATHS
 nm-applet
 /usr/share/icons/hicolor/22x22/apps/
 
@@ -7,3 +8,6 @@ pnmixer
 steam and various
 /var/lib/app-info/icons/debian-buster-main/48x48/
 
+# ALIASES
+telegram* <- telegram-desktop <- org.telegram.desktop
+pnmixer-*  <- audio-*
