@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-# Used my script termux-mini which connects to phone trough ssh..
-# ..and pulls battery percentage trough termux-api
+# Used to check my battery trough script teriyaki which connects to phone trough ssh
+# and pulls battery percentage trough termux-api
 # it was unstable and no longer needed for me so disabled.
+# the repo of teriyaki: https://github.com/kebablord/teriyaki
 
 from subprocess import Popen,PIPE,STDOUT,call
 

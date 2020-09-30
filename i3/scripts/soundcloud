@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # I added a feature that logs current playing track/artist to Auryo Soundcloud Player
 # which made us able to pull them and print it to our status bar
-# Here is my fork: https://github.com/Kebablord/Auryo
+# Here is my fork: https://github.com/Kebablord/Auryo (it's included in auryo's official latest release)
 
 from os import system
 

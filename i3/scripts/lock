@@ -2,6 +2,11 @@
 # -*- coding: utf-8 -*-
 # vim:ts=2:sw=2:expandtab
 
+# That one is mosaic blur screen for i3lock, code is not mine
+# The problem with this script is it has a delay on preparing
+# This delay makes other people interrup the locking process by launching dmenu
+# So your system doesn't get locked. I started using slimlock instead
+
 import os
 import xcffib
 from xcffib.xproto import *

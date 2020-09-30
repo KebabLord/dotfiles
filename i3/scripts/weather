@@ -1,4 +1,9 @@
 #!/bin/bash
+# People generally use the one liner command for wttr.in
+# but when the site is under maintance or you have no connection
+# all you get is a long json parsing error on i3blocks
+# so the difference in this one is it checks if the req is success, otherwise doesn't print anything
+
 status=`curl -Ss 'http://wttr.in/YOUR_CITY_HERE?0&T&Q' 2>/dev/null | cut -c 16- 2>/dev/null | head -2 2>/dev/null | xargs echo 2>/dev/null`
 if [[ $status == *"°C"* ]]
 then

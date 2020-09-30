@@ -1,12 +1,12 @@
 #!/bin/bash
+# This script is simply my proxy toggle switch i3block button
+
 pidof node &>/dev/null
 if [ $? != 0 ]
 then
 green-tunnel --port 13337 &>/dev/null &
-echo 
-#echo on
+echo  # ON
 else
 pkill node
-#echo off
-echo 
+echo  # OFF
 fi
