@@ -1,13 +1,18 @@
-!!! URxvt Basic Settings !!!
+! URxvt Basic Settings
 URxvt*scrollBar: false
-URxvt*transparent: true
+URxvt*transparent: false
 URXvt*pixbuf: true
-URxvt*shading: 46
+URxvt.internalBorder: 10
 
-URxvt.font:xft:dina:size=12
-URxvt.boldFont:xft:dina:style=Bold:size=12
+URxvt.font:xft:terminus:size=12
+URxvt.boldFont:xft:terminus:style=Bold:size=12
 
-URxvt.letterSpace: -1
+!URxvt.letterSpace: -1
+URxvt.saveLines: 200000
+
+URxvt*scrollTtyOutput:      false
+URxvt*scrollWithBuffer:     true
+URxvt*scrollTtyKeypress:    true
 
 ! Disabling the ctrl+shift selector
 URxvt.iso14755: false
@@ -17,9 +22,9 @@ URxvt.iso14755_52: false
 URxvt.keysym.Shift-Up: command:\033]720;1\007
 URxvt.keysym.Shift-Down: command:\033]721;1\007
 
-!!! Copy Paste & Other Extensions !!!
+! Copy Paste & Other Extensions
 URxvt.perl-lib:		/usr/lib/urxvt/perl
-URxvt.perl-ext-common:	default,clipboard,url-select
+URxvt.perl-ext-common:	default,clipboard,url-select,font-size
 URxvt.copyCommand:	xclip -i -selection clipboard
 URxvt.pasteCommand:	xclip -o -selection clipboard
 
@@ -33,3 +38,6 @@ URxvt.keysym.M-C-v:		perl:clipboard:paste_escaped
 URxvt.keysym.M-Escape:		perl:keyboard-select:activate
 URxvt.keysym.M-s:		perl:keyboard-select:search
 URxvt.keysym.M-u:		perl:url-select:select_next
+
+URxvt.keysym.Control-minus:    font-size:decrease
+URxvt.keysym.Control-equal:    font-size:increase

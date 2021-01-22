@@ -1,0 +1,4 @@
+configuration {
+	theme: "./tiny.rasi";
+	terminal: "urxvt";
+}

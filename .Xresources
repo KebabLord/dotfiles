@@ -1,52 +1,42 @@
-! special
-*.foreground:   #ffffff
-*.background:   #000000
-*.cursorColor:  #ffffff
-
-! X colors
-!URxvt*foreground:   #c1c1c1
-!URxvt*background:   [100]#000000
-!URxvt*cursorColor:  #c1c1c1
-URxvt*borderColor:   [100]#000000
-
+! X colors.
+*foreground:        #ffffff
+*background:        #282c34
+!*.foreground:       #ffffff
+!*.background:       #282c34
+URxvt*foreground:   #ffffff
+URxvt*background:   [100]#282c34
+URxvt*cursorColor:  #ffffff
+URxvt*borderColor:  [100]#282c34
 
 ! Colors 0-15.
-
-! black
-*.color0:       #fbf1f2
-*.color8:       #bfb9c6
-
-! red
-*.color1:       #abb584
-*.color9:       #abb584
-
-! green
-*.color2:       #8c7f70
-*.color10:      #8c7f70
-
-! yellow
-*.color3:       #96b5b4
-*.color11:      #96b5b4
-
-! blue
-*.color4:       #c7af94
-*.color12:      #c7af94
-
-! magenta
-*.color5:       #999999
-*.color13:      #999999
-
-! cyan
-*.color6:       #5f8787
-*.color14:      #5f8787
-
-! white
-*.color7:       #ccbfb3
-*.color15:      #ccbfb3
-
+*color0:  #282c34
+*color1:  #93735E
+*color2:  #A09071
+*color3:  #F0986E
+*color4:  #F5C37A
+*color5:  #C5B58E
+*color6:  #F9D08E
+*color7:  #ffffff
+*color8:  #a69e8b
+*color9:  #93735E
+*color10:  #A09071
+*color11:  #F0986E
+*color12:  #F5C37A
+*color13:  #C5B58E
+*color14:  #F9D08E
+*color15:  #ffffff
 
 ! Black color that will not be affected by bold highlighting.
-*.color66: #000000
-*color66:  #000000!
+*color66:  #282c34
 
+! Xclock colors.
+XClock*foreground: #ffffff
+XClock*background: #282c34
+XClock*majorColor:  rgba:ee/e2/c7/ff
+XClock*minorColor:  rgba:ee/e2/c7/ff
+XClock*hourColor:   rgba:ee/e2/c7/ff
+XClock*minuteColor: rgba:ee/e2/c7/ff
+XClock*secondColor: rgba:ee/e2/c7/ff
 
+! Set depth to make transparency work.
+URxvt*depth: 32

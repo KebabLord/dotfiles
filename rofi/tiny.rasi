@@ -1,6 +1,7 @@
 /*
  * Tiny by Jumbo
  * Fork from me-benni's onedark.rasi
+ * #94eb8a
  */
 
 
@@ -21,7 +22,7 @@
   spacing: 0;
   background-color: transparent;
 
-  font: "dina 16";
+  font: "terminus 12";
   text-color: @text;
 }
 

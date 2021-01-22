@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 # Used to check my battery trough script teriyaki which connects to phone trough ssh
 # and pulls battery percentage trough termux-api
-# it was unstable and no longer needed for me so disabled.
+# it was unstable and no longer needed for me so disabled. I should been using adb instead
 # the repo of teriyaki: https://github.com/kebablord/teriyaki
 
 from subprocess import Popen,PIPE,STDOUT,call
 
-raw = Popen("termux run -o LogLevel=QUIET -t termux-battery-status",shell=True,stdout=PIPE)
+raw = Popen("teriyaki run -o LogLevel=QUIET -t termux-battery-status",shell=True,stdout=PIPE)
 raw = raw.communicate()[0].decode()
 
 from json import loads

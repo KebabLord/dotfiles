@@ -1,0 +1,9 @@
+#!/bin/bash
+wg show &>/dev/null
+if [[ $? == 0 ]];then
+  sudo wg-quick up wg0 &>/dev/null
+  echo VPN:
+else
+  sudo wg-quick down wg0 &>/dev/null
+  echo VPN:
+fi

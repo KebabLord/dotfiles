@@ -11,8 +11,8 @@ alias git_log="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d
 alias switch2speaker="pactl set-default-sink alsa_output.pci-0000_0a_00.3.analog-stereo"
 alias switch2hdmi="pactl set-default-sink alsa_output.pci-0000_08_00.1.hdmi-stereo-extra1"
 
-AWS="$SERVER"
-alias vm="ssh $SERVER -i $SECRET"
+VPS="BLAHBLAH"
+alias vm="ssh $VPS -p 22"
 alias irc="vm -t tmux attach-session -t 0"
 
 alias pi="pwd>/tmp/pi"
@@ -55,7 +55,8 @@ cpy() {
 }
 
 fuck() {
- for i in $(pidof $1);do
-   kill -s 9 $i
- done
+for i in $(pidof $1)
+do
+  kill -s 9 $i
+done
 }

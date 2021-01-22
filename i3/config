@@ -1,9 +1,8 @@
 ### i3-gaps config file of the Kebablord
 ### Reference: https://i3wm.org/docs/userguide.html
 
-
 # Sets wallpaper and terminal themes at the start, 'wal' or 'feh'
-exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/current.jpg
+exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/grey_282c34.png
 exec --no-startup-id compton
 
 ### -- BASIC DEFINITIONS -- ###
@@ -11,14 +10,14 @@ set $mod Mod4
 floating_modifier $mod
 font pango:DejaVu Sans Mono 8
 
-### -- CLASS -- ###
-client.focused          #1A1A1A #1A1A1A #F4F5F0 #9196DB   #9196DB #285577
-client.focused_inactive #1A1A1A #1A1A1A #F4F5F0 #9196DB   #9196DB
-client.unfocused        #1A1A1A #404142 #F4F5F0 #9196DB   #9196DB
-client.urgent           #2F343A #897765 #FFFFFF #900000   #900000
+### -- CLASS -- ###	border     backgro     text      indicat   childbo
+client.focused          #1A1A1A00  #00000000   #9196DB   #FFFFFF   #FFFFFF
+client.focused_inactive #1A1A1A00  #00000000   #000000   #B9B9B9   #B9B9B9
+client.unfocused        #1A1A1A00  #00000000   #000000   #B9B9B9   #B9B9B9
+client.urgent           #2F343A00  #00000000   #000000   #900000   #900000
 
 ### -- BASIC KEYBINDS -- ###
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec "rofi -show run"
 bindsym $mod+Return exec /usr/bin/urxvt
 bindsym $mod+Shift+q kill
 # change focus
@@ -46,48 +45,28 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-
-### -- WORKSPACES -- ###
-set $ws1 1:
-set $ws2 2:
-set $ws3 3:
-set $ws4 4:
-#set $ws10 10:
-set $ws10 10: 
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-
 #  >switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+quotedbl workspace $ws10
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+quotedbl workspace number 10
 #  >move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+quotedbl move container to workspace $ws10
-#  >workspace settings for dual monitor
-#workspace $ws1 output HDMI-1
-#workspace $ws2 output HDMI-1
-#workspace $ws4 output DVI-D-1
-#workspace $ws10 output DVI-D-1
-
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+quotedbl move container to workspace number 10
 
 ### --- MODES --- ###
 mode " Resize Mode" {
@@ -117,27 +96,26 @@ mode " Gaps Mode" {
         bindsym Escape mode "default"
 }
 
+default_border pixel 2
+default_floating_border pixel 2
 
 ### -- GAPS & BAR -- ###
-for_window [class="^.*"] border pixel 0
 gaps inner 34
 gaps outer 18
 
 bar {
    strip_workspace_numbers yes
-   status_command i3blocks -c ~/.i3/i3blocks.conf
+   status_command i3blocks -c ~/.config/i3/i3blocks.conf
     i3bar_command i3bar -t 0.1
-#   output HDMI-1
     position top
-#    height 26
-    font pango:dina 9
+    font xft:terminus 10
         colors {
             statusline #E6FFF5
-            background #00000000
+            background #12161e00
 #                              BORDER    BG        FG
-            focused_workspace  #FFFFFF00 #00000000 #000000
-            inactive_workspace #FFFFFF00 #00000000 #00000050
-            urgent_workspace   #00000000 #00000000 #C40100
+            focused_workspace  #FFFFFF00 #00000000 #FFFFFF
+            inactive_workspace #FFFFFF00 #00000000 #FFFFFF70
+            urgent_workspace   #00000000 #00000000 #C4010080
             binding_mode       #00000000 #00000000 #000000
         }
 }
@@ -147,6 +125,7 @@ bar {
 bindsym $mod+l exec --no-startup-id slimlock
 bindsym --release $mod+Shift+c exec --no-startup-id xkill
 
+bindsym XF86AudioPlay exec --no-startup-id timeout 0.5 playerctl play-pause
 bindsym $mod+F5 reload
 bindsym $mod+F6 restart
 bindsym $mod+F7 exit
@@ -159,15 +138,21 @@ bindsym Print exec --no-startup-id flameshot gui -p ~/Pictures/Screenshots/
 bindsym ctrl+Print exec --no-startup-id flameshot gui -d 3000 -p ~/Pictures/Screenshots/
 
 ### -- FUNCTIONS -- ###
-assign [title="Auryo - 2.5.4"] workspace $ws10
-assign [title="GNU Image Manipulation Program"] workspace $ws3
 
-# >Close Steam news
+# Close Steam news
 for_window [title="Steam - News"] kill
-assign [class="Steam"] workspace $ws10
+assign [class="Steam"] workspace number 10
 
 for_window [class="mpv"] floating enable
 for_window [class="mpv"] move position center
+
+for_window [instance="float"] floating enable
+for_window [instance="float"] move position center
+
+for_window [title="mpvradio"] floating enable move right 890px,move down 700px
+for_window [title="mpvradio"] border pixel 0
+for_window [title="mpvradio"] resize set 404 40
+for_window [title="mpvradio"] sticky enable
 
 for_window [class="feh"] floating enable
 for_window [class="feh"] resize set 1000 800
@@ -176,14 +161,15 @@ for_window [class="feh"] move position center
 for_window [window_role="GtkFileChooserDialog"] resize set 800 600
 for_window [window_role="GtkFileChooserDialog"] move position center
 
-# >terminal helper-chan MOD+X
-exec --no-startup-id urxvt -name "termichan" -title "termichan" +bl -w 2 -bd gray
+# terminal dropdown MOD+X
+exec --no-startup-id urxvt -name "termichan" -title "termichan"
 for_window [instance="termichan"] move scratchpad
 for_window [instance="termichan"] move position center
 for_window [instance="termichan"] sticky enable
 bindsym $mod+x [instance="termichan"] scratchpad show
 
-# >nautilus helper-chan MOD+Z
+# nautilus dropdown MOD+Z
+# Yes. For filepicker meme
 exec --no-startup-id nautilus ~/Pictures
 for_window [class="Nautilus"] move scratchpad
 for_window [class="Nautilus"] move position center
@@ -193,5 +179,6 @@ for_window [window_type="DIALOG"] focus
 for_window [window_type="DIALOG"] move position center
 for_window [window_type="DIALOG"] sticky enable
 
+exec_always --no-startup-id exec i3-workspace-names-daemon -nud " "
 exec --no-startup-id pnmixer
 exec --no-startup-id sleep 3s; nm-applet

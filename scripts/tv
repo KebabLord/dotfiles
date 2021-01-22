@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#Get IP address of tv from searching port 56789
+if [ -a /tmp/toshiba_ip ];then
+	tv_ip="$(cat /tmp/toshiba_ip)"
+else
+	tv_ip="$(nmap 192.168.1.0/24 -sT -np56789 --open -oG - | awk '/Up$/{print $2}' | tee /tmp/toshiba_ip)"
+fi
+
+#Function to send specified command key code
+send_key(){
+wget "http://${tv_ip}:56789/apps/SmartCenter" -O /dev/null \
+	--header "Content-Type:text/plain; charset=ISO-8859-1" \
+	--header "Connection: keep-alive" 			\
+	--post-data "<?xml version='1.0' ?><remote><key code='${1}'/></remote>" &>/dev/null
+}
+
+#Parse args
+case $1 in
+    +)    send_key 1016;;
+    -)    send_key 1017;;
+    off)  send_key 1012;;
+    up)   send_key 1032;;
+    down) send_key 1033;;
+    mute) send_key 1013;;
+    help|"-h") echo "Usage: $0 {+, -, off, up, down, mute} or [CHANNEL NUM]";;
+    *)
+	arr=(); value=$1
+	for ((i = 0; i < ${#value}; i++)); do
+		arr+="$(((1000+(${value:$i:1})))) ";done
+	for i in ${arr[@]};do
+		send_key $i;done;;
+esac
