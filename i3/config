@@ -170,10 +170,12 @@ bindsym $mod+x [instance="termichan"] scratchpad show
 
 # nautilus dropdown MOD+Z
 # Yes. For filepicker meme
-exec --no-startup-id nautilus ~/Pictures
-for_window [class="Nautilus"] move scratchpad
-for_window [class="Nautilus"] move position center
-bindsym $mod+z [class="Nautilus"] scratchpad show
+# Normally nautilus doesn't support launching itself with a custom title
+# so i run it trough custom_title script which you can find it in scripts folder of repo.
+exec --no-startup-id custom_title nautichan nautilus ~/Pictures
+for_window [instance="nautichan"] move scratchpad
+for_window [instance="nautichan"] move position center
+bindsym $mod+z [instance="nautichan"] scratchpad show
 
 for_window [window_type="DIALOG"] focus
 for_window [window_type="DIALOG"] move position center
@@ -182,3 +184,4 @@ for_window [window_type="DIALOG"] sticky enable
 exec_always --no-startup-id exec i3-workspace-names-daemon -nud " "
 exec --no-startup-id pnmixer
 exec --no-startup-id sleep 3s; nm-applet
+exec --no-startup-id ircnotify

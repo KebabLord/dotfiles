@@ -50,6 +50,11 @@ anon() {
     curl -F "file=@$1" https://api.anonfile.com/upload
 }
 
+wiki() {
+    raw_data=$(curl 'http://gopherpedia.com/gopher'  --data-raw "url=/gopherpedia.com/${1}")
+    echo -e $(jq '.["data"]' <<< $raw_data) | tr -d '\\' | grep -v 'span\=' | tail -n +2 | less
+}
+
 cpy() {
      echo -n $1 | xclip -selection clipboard
 }

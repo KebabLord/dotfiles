@@ -1,0 +1,28 @@
+#!/bin/bash -x
+# I use this script to get push notifications from my irc server running weechat
+# It simply binds irc server's related port to my local trough ssh then runs weenotify
+# It also assumes that you have weenotify at ~/Scripts folder and you configured it.
+# See: https://weechat.org/scripts/source/weenotify.py.html
+server="ssh USER@HOST -p 22 -i ~/.ssh/secret.pem"
+
+# Kill this script if connection unavailable
+for ((i=1; i<=8; i++));do
+  nc -zv $host 22
+  if [[ $? == 0 ]];then
+    break
+  fi
+  sleep 3
+  if [[ $i == 8 ]];then
+    notify-send "Couldn't connect to Virtual Machine"
+    exit
+  fi
+done
+
+# Kill if zombie ssh tunnel then bind local port to remote
+$server -t "kill -s 9 \$(sudo lsof -i :5431 | awk '{print \$2}' | head -n 2 | tail -n 1)"
+(top -cbn 1 | grep ssh | grep notify_tunnel | awk '{print $1}' | xargs -L 1 kill -s 9) 2>/dev/null
+$server -t -S notify_tunnel -fNT -R 5431:localhost:5431 -o ServerAliveInterval=60
+
+# Kill if tmux session is already running and start a new one
+[[ $(tmux list-sessions) =~ "notify" ]] && tmux kill-session -t notify
+tmux new-session -d -s "notify" "python3 ~/Scripts/weenotify.py -s"

@@ -1,10 +1,8 @@
 #!/bin/bash
 
-# Disable cursor
-echo -ne "\033[?25l" #disable cursor
-
-# Give the instance a "radio" title for i3wm purposes
-PS1="";echo -ne "\033]0;mpvradio\007"
+# Disable cursor and give the instance a "radio" title for i3wm purposes
+#echo -ne "\033[?25l" #disable cursor
+#PS1="";echo -ne "\033]0;mpvradio\007"
 
 channels='{
 "Japanese FM"	: "https://musicbird-hls.leanstream.co/musicbird/JCB098.stream/playlist.m3u8",
