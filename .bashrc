@@ -14,6 +14,8 @@ fi
 # user@host ~$DIR\nλ
 PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[1;49;96m\]\u@\h\[\033[00m\]\[\033[00;34m\]\w\[\033[00m\]:\nλ '
 
+PATH=$PATH:/sbin:/usr/sbin:$HOME/.local/bin
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
@@ -64,4 +66,3 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-

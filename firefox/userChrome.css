@@ -13,6 +13,9 @@
   --uc-tgb-separators-color: none;
   --uc-tab-separators-width: none;
   --uc-tab-fg-color: #FFF;
+  --tab-border-radius: 0px;!important;
+  --tab-block-margin:0;
+
 }
 
 .close-icon {
@@ -58,9 +61,9 @@ toolbarbutton#tabs-newtab-button {
 }
 
 :-moz-any(#content, #appcontent) browser {
-  margin-right: -10px !important;
+  margin-right: -15px !important;
   overflow-y: scroll;
-  margin-bottom: 0px !important;
+  margin-bottom: -15px !important;
   overflow-x: scroll;
 }
 
