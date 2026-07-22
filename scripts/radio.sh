@@ -5,12 +5,10 @@
 #PS1="";echo -ne "\033]0;mpvradio\007"
 
 channels='{
-"Japanese FM"	: "https://musicbird-hls.leanstream.co/musicbird/JCB098.stream/playlist.m3u8",
 "Listen.moe"	: "https://listen.moe/opus",
 "Anon OPs"	: "https://radio.anonops.com/RadioAnonOps.m3u",
-"Lo-Fi Radio"	: "http://hyades.shoutca.st:8043/stream",
-"KentFM"	: "http://46.20.7.101/stream/268/",
-"ITU Radio"	: "http://160.75.86.29:8088/stream/5/"
+"ITU Radio"	: "http://160.75.86.29:8088/stream/5/",
+"sqt.wtf"	: "https://radio.sqt.wtf/sqtbot.ogg"
 }'
 
 ch_len=$(jq 'length' <<< $channels)

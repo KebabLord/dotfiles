@@ -12,6 +12,7 @@
     "mpv":"play-circle",
     "mpvradio":"simplybuilt",
     "sublime_text":"code",
+    "code":"code",
     "gimp":"paint-brush",
     "inkscape":"paint-brush",
     "telegramdesktop":"paper-plane",
@@ -19,6 +20,7 @@
     "firefox": "firefox",
     "chromium": "chrome",
     "nautilus": "folder-open",
+    "thunar": "folder-open",
     "chromium-browser": "chrome",
     "chrome": "chrome",
     "x-terminal-emulator": "terminal",
@@ -26,5 +28,9 @@
     "jetbrains-idea-ce": "edit",
     "vlc": "play",
     "signal": "comment",
-    "_no_match": "asterisk"
+    "_no_match": "asterisk",
+    "spotify":"spotify",
+    "Weechat 3.8":"weixin",
+    "gedit":"file-text",
+    "nano":"file-text"
 }

@@ -1,28 +1,28 @@
-#!/usr/bin/python3
-# I added a feature that logs current playing track/artist to Auryo Soundcloud Player
-# which made us able to pull them and print it to our status bar
-# Here is my fork: https://github.com/Kebablord/Auryo (it's included in auryo's official latest release)
+#!/usr/bin/env bash
 
-from os import system
+player="firefox"
 
-log = open("/tmp/auryo_status.log",mode="r").readlines()
-title = log[0].rstrip()
-artist = log[1].rstrip()
+[[ $(playerctl -p "$player" status 2>/dev/null) == "Playing" ]] || exit 0
 
-if (' (' in title):
-  title = title[:title.index(' (')]
+url=$(playerctl -p "$player" metadata xesam:url 2>/dev/null)
+[[ $url == https://soundcloud.com/* ]] || exit 0
 
-if (' [' in title):
-  title = title[:title.index(' [')]
+title=$(playerctl -p "$player" metadata xesam:title 2>/dev/null)
+artist=$(playerctl -p "$player" metadata xesam:artist 2>/dev/null)
 
-if ('-' in title):
-  artist = ''
-  if not(' -' in title):
-      title.replace('-',' -')
-else:
-  artist += ' - '
+title=$(sed -E 's/[[:space:]]*\([^)]*\)//g; s/^[[:space:]]+|[[:space:]]+$//g' <<< "$title")
 
-if not(system('pidof auryo >/dev/null')):
-  print(artist+title)
-else:
-  print('')
+if [[ $title == *" - "* ]]; then
+    text="$title"
+else
+    text="$title"
+    [[ -n $artist ]] && text+=" — $artist"
+fi
+
+text=${text:0:36}
+
+text=${text//&/&amp;}
+text=${text//</&lt;}
+text=${text//>/&gt;}
+
+printf '<span underline="low" underline_color="#FF5500">%s</span>\n' "$text"

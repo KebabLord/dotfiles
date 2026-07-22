@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+[[ $(playerctl -p spotify status 2>/dev/null) == "Playing" ]] || exit 0
+
+track=$(playerctl -p spotify metadata \
+    --format '{{title}} — {{artist}}' 2>/dev/null) || exit 0
+
+track=${track//&/&amp;}
+track=${track//</&lt;}
+track=${track//>/&gt;}
+
+printf '<span underline="low" underline_color="#1DB954">%s</span>\n' "$track"

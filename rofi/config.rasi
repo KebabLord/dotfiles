@@ -1,4 +1,1 @@
-configuration {
-	theme: "./tiny.rasi";
-	terminal: "urxvt";
-}
+@theme "~/.config/rofi/tiny.rasi"

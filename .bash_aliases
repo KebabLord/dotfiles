@@ -1,6 +1,13 @@
+alias wine32="WINEPREFIX="$HOME/.wine32" WINEARCH=win32 wine"
+alias winetricks32="WINEPREFIX="$HOME/.wine32" WINEARCH=win32 winetricks"
+alias winecfg32="WINEPREFIX="$HOME/.wine32" WINEARCH=win32 winecfg"
+
 alias fedit_i3b="nano ~/.config/i3/i3blocks.conf"
 alias fedit_i3="nano ~/.config/i3/config"
 alias fedit_a="nano ~/.bash_aliases"
+alias fu_grub="sudo update-grub2;sudo grub-mkconfig;sudo update-initramfs -u;"
+alias feh="feh --scale-down --auto-zoom"
+alias c="concalc"
 
 alias gpp='g++ -Wall'
 alias gpp2='g++ -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion -Werror'
@@ -11,10 +18,6 @@ alias git_log="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d
 alias switch2speaker="pactl set-default-sink alsa_output.pci-0000_0a_00.3.analog-stereo"
 alias switch2hdmi="pactl set-default-sink alsa_output.pci-0000_08_00.1.hdmi-stereo-extra1"
 
-VPS="BLAHBLAH"
-alias vm="ssh $VPS -p 22"
-alias irc="vm -t tmux attach-session -t 0"
-
 alias pi="pwd>/tmp/pi"
 alias po="cd \`cat /tmp/pi\`"
 
@@ -23,7 +26,7 @@ alias link_extract="grep -shoP 'http.*?[\" >]'"
 alias logoff="unset HISTFILE && echo history is OFF"
 alias py="python3"
 alias bye="exit"
-alias x="sudo pm-suspend"
+#alias x="sudo pm-suspend"
 
 urbandict() {
  curl -s "https://api.urbandictionary.com/v0/tooltip?term=${1}" |
@@ -65,3 +68,10 @@ do
   kill -s 9 $i
 done
 }
+
+alias higre="history | grep "
+#alias fix_speaker="echo 0 | sudo tee /sys/module/snd_hda_intel/parameters/power_save"
+alias unik="awk '!x[$0]++'"
+alias neofetch="neowofetch"
+
+

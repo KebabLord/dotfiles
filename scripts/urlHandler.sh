@@ -1,9 +1,9 @@
 #!/bin/bash -x
-# URL HANDLER - Github/Kebablord
+# URL HANDLER
 
 #Activate proxy if neccessary
 case "$1" in
-    *4cdn*|*4chan*)
+    *Xcdn*|*Xchan*)
         prefix="proxychains"
         suffix="((Proxy))"
     ;;

@@ -1,0 +1,144 @@
+[general]
+live_config_reload = true
+
+[env]
+TERM = "xterm-256color"
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+[font]
+size = 12.0
+normal = { family = "Terminus (TTF)", style = "Medium" }
+bold = { family = "Terminus (TTF)", style = "Bold" }
+italic = { family = "Terminus (TTF)", style = "Italic" }
+bold_italic = { family = "Terminus (TTF)", style = "Bold Italic" }
+offset = { x = 0, y = 0 }
+glyph_offset = { x = 0, y = 0 }
+builtin_box_drawing = true
+
+[window]
+# Alacritty supports symmetric x/y padding, not four independent sides.
+padding = { x = 8, y = 8 }
+dynamic_padding = false
+decorations = "Full"
+opacity = 0.60
+resize_increments = true
+dynamic_title = true
+
+[scrolling]
+history = 100000
+multiplier = 5
+
+# Dracula
+[colors.primary]
+foreground = "#F8F8F2"
+background = "#000000"
+
+[colors.cursor]
+cursor = "#FFFFFF"
+text = "#282A36"
+
+[colors.selection]
+text = "#282A36"
+background = "#F8F8F2"
+
+[colors.normal]
+black   = "#000000"
+red     = "#FF5555"
+green   = "#50FA7B"
+yellow  = "#F1FA8C"
+blue    = "#BD93F9"
+magenta = "#FF79C6"
+cyan    = "#8BE9FD"
+white   = "#BFBFBF"
+
+[colors.bright]
+black   = "#4D4D4D"
+red     = "#FF6E67"
+green   = "#5AF78E"
+yellow  = "#F4F99D"
+blue    = "#CAA9FA"
+magenta = "#FF92D0"
+cyan    = "#9AEDFE"
+white   = "#E6E6E6"
+
+[colors]
+transparent_background_colors = false
+draw_bold_text_with_bright_colors = false
+
+# Selection and mouse
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = """,│`|:"' ()[]{}<>\t"""
+
+[mouse]
+hide_when_typing = false
+bindings = [
+  { mouse = "Middle", action = "PasteSelection" },
+]
+
+[bell]
+duration = 0
+
+[cursor]
+style = { shape = "Block", blinking = "Off" }
+unfocused_hollow = true
+
+# ============================================================
+# URL, path, word, and line hints
+# ============================================================
+
+[[hints.enabled]]
+regex = '(ipfs:|ipns:|magnet:|mailto:|gemini://|irc://|ircs://|https://|http://|file:|git://|ftp://)[^\u0000-\u001F\u007F-\u009F<>"\\s{-}\\^⟨⟩`\\\\]+'
+command = "/home/owo/Scripts/urlHandler.sh"
+post_processing = true
+persist = false
+mouse = { enabled = true }
+binding = { key = "U", mods = "Alt" }
+
+[[hints.enabled]]
+regex = '^.+$'
+action = "Copy"
+post_processing = false
+persist = false
+binding = { key = "L", mods = "Alt" }
+
+[[hints.enabled]]
+regex = '[^\s]+'
+action = "Copy"
+post_processing = false
+persist = false
+binding = { key = "W", mods = "Alt" }
+
+[[hints.enabled]]
+regex = '(?:~|/|\./|\.\./)[A-Za-z0-9._~+@%=-]+(?:/[A-Za-z0-9._~+@%=-]+)*'
+action = "Copy"
+post_processing = true
+persist = false
+binding = { key = "P", mods = "Alt" }
+
+# Keyboard bindings
+[keyboard]
+bindings = [
+  { key = "ArrowUp",   mods = "Shift", action = "ScrollLineUp" },
+  { key = "ArrowDown", mods = "Shift", action = "ScrollLineDown" },
+  { key = "PageUp",    mods = "Shift", action = "ScrollPageUp" },
+  { key = "PageDown",  mods = "Shift", action = "ScrollPageDown" },
+  { key = "Home",      mods = "Shift", action = "ScrollToTop" },
+  { key = "End",       mods = "Shift", action = "ScrollToBottom" },
+
+  { key = "C", mods = "Alt", action = "Copy" },
+  { key = "V", mods = "Alt", action = "Paste" },
+  { key = "C", mods = "Alt|Shift", action = "Copy" },
+  { key = "V", mods = "Alt|Shift", action = "PasteSelection" },
+
+  { key = "Escape", mods = "Alt", action = "ToggleViMode" },
+  { key = "S", mods = "Alt", action = "SearchBackward" },
+
+  { key = "-", mods = "Control", action = "DecreaseFontSize" },
+  { key = "=", mods = "Control", action = "IncreaseFontSize" },
+  { key = "+", mods = "Control|Shift", action = "IncreaseFontSize" },
+  { key = "0", mods = "Control", action = "ResetFontSize" },
+
+  { key = "L", mods = "Control|Shift", chars = "\u000c" },
+]
